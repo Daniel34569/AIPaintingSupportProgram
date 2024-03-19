@@ -55,6 +55,11 @@ def process_text_transform():
     print(command)
     subprocess.run(command, shell=True, check=True)
 
+def process_lora_xyplot():
+    command = f"python lora_xyplot_generator.py.py"
+    print(command)
+    subprocess.run(command, shell=True, check=True)
+
 def initialize_watermark_tab(tab):
     current_row = 1
 
@@ -117,6 +122,15 @@ def initialize_text_transform(tab):
     current_row += 1
 
     tk.Button(tab, text="Process", command=process_text_transform).grid(row=current_row, columnspan=2)
+    
+def initialize_lora_xyplot(tab):
+    current_row = 1
+
+    tk.Label(tab, text="Doesn't Need Any Input for This Mode!!").grid(row=current_row, column=0, sticky="w")
+
+    current_row += 1
+
+    tk.Button(tab, text="Process", command=process_lora_xyplot).grid(row=current_row, columnspan=2)
 
 
 
@@ -150,11 +164,13 @@ tab2 = ttk.Frame(tab_control)
 tab3 = ttk.Frame(tab_control)
 tab4 = ttk.Frame(tab_control)
 tab5 = ttk.Frame(tab_control)
+tab6 = ttk.Frame(tab_control)
 tab_control.add(tab1, text="Resize")
 tab_control.add(tab2, text="Watermark")
 tab_control.add(tab3, text="Editor")
 tab_control.add(tab4, text="Mosaic")
 tab_control.add(tab5, text="Text Transform")
+tab_control.add(tab6, text="Lora XYPlot")
 tab_control.grid(row=1, columnspan=6)
 
 
@@ -196,5 +212,7 @@ initialize_editor_tab(tab3)
 initialize_mosaic_tab(tab4)
 
 initialize_text_transform(tab5)
+
+initialize_lora_xyplot(tab6)
 
 app.mainloop()
