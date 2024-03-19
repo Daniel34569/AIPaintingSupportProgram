@@ -35,9 +35,13 @@ Mosaic pixel size: Pixel size of mosaic (-1 for 0.01 * short side)
 In this mode
 
 Press a to change to previous image, d to change to next image
+
 Press r to revert last line
+
 Press space key to return to original image size * shrink ratio
+
 Press s to process mosaic
+
 Press ESC to exit
 
 Draw a cross to mosaic the area of the cross
