@@ -1,5 +1,5 @@
 # AIPaintingSupportProgram
-Require python > 3.10
+Require python &gt; 3.10
 
 
 Some tool box for SDWebUI
@@ -58,4 +58,4 @@ For example, select a folder contain LoraA.safetensor and LoraB.safetensor
 
 Weight set to 0.5, 1.0
 
-It will generate <lora:LoraA:0.3>, <lora:LoraA:0.5>, <lora:LoraA:0.7>, <lora:LoraA:1.0>, <lora:LoraB:0.3>, <lora:LoraB:0.5>, <lora:LoraB:0.7>, <lora:LoraB:1.0>
+It will generate &lt;lora:LoraA:0.3&gt;, &lt;lora:LoraA:0.5&gt;, &lt;lora:LoraA:0.7&gt;, &lt;lora:LoraA:1.0&gt;, &lt;lora:LoraB:0.3&gt;, &lt;lora:LoraB:0.5&gt;, &lt;lora:LoraB:0.7&gt;, &lt;lora:LoraB:1.0&gt;
