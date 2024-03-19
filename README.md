@@ -4,7 +4,7 @@ Require python &gt; 3.10
 
 Some tool box for SDWebUI
 
-1. Resize
+**1. Resize**
 
 Resize the image in selected folder
 
@@ -13,18 +13,18 @@ Param 4: Result image type
 
 Param 3 Seperate Vertical: Divide this image into X equal-sized horizontal sections
 
-2. Watermark
+**2. Watermark**
 
 Add watermark in all the image in the selected folder
 
 Ratio: the size of image for watermark
 Position: the start x,y (from 0~1) in the target image for the watermark to put on
 
-3. Editor
+**3. Editor**
 
 Unused now
 
-4. Mosaic
+**4. Mosaic**
 
 Add mosaic on the image in the selected folder
 
@@ -42,7 +42,7 @@ Press ESC to exit
 
 Draw a cross to mosaic the area of the cross
 
-5. Text Transform
+**5. Text Transform**
 
   1. Transform CivitAI : Change all the text into lower case (If copy from the trigger word)
                         For example : (1GIRL SOLO) will be convert to 1girl, solo
@@ -50,7 +50,7 @@ Draw a cross to mosaic the area of the cross
   3. NAI to webUI : Convert the strength from NAI format to webUI format
   4. Booru to WebUI : Convert the Tag in booru to WebUI format
 
-5. Lora XY Plot
+**5. Lora XY Plot**
 
 Generate string for XY plot to test lora
 
