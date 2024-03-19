@@ -197,6 +197,4 @@ initialize_mosaic_tab(tab4)
 
 initialize_text_transform(tab5)
 
-#tk.Checkbutton(app, text="isEnable", variable=is_enable_var).grid(row=3, columnspan=2)
-
 app.mainloop()
