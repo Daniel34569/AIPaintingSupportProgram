@@ -18,7 +18,7 @@ def process_resize():
     seperate_vertical = seperate_vertical_var.get()
     result_type = result_type_var.get()
 
-    command = f"python resave.py --input_dir \"{folder}\" --shrink_ratio {shrink_ratio} --resize_to_px {resize_to_px} --seperate_vertical {seperate_vertical} --result_type {result_type}"
+    command = f"python codes/resave.py --input_dir \"{folder}\" --shrink_ratio {shrink_ratio} --resize_to_px {resize_to_px} --seperate_vertical {seperate_vertical} --result_type {result_type}"
     print(command)
     subprocess.run(command, shell=True, check=True)
 
@@ -31,14 +31,14 @@ def process_watermark():
     watermark_image = watermark_image_var.get()
     result_folder = result_folder_var.get()
 
-    command = f"python watermark.py --folder \"{folder}\" --opacity {opacity} --ratio {ratio} --position {position_x} {position_y} --watermark_image \"{watermark_image}\" --result_folder \"{result_folder}\""
+    command = f"python codes/watermark.py --folder \"{folder}\" --opacity {opacity} --ratio {ratio} --position {position_x} {position_y} --watermark_image \"{watermark_image}\" --result_folder \"{result_folder}\""
     print(command)
     subprocess.run(command, shell=True, check=True)
 
     
 def process_editor():
     folder = folder_var.get()
-    command = f"python editor.py --input_dir \"{folder}\""
+    command = f"python codes/editor.py --input_dir \"{folder}\""
     print(command)
     subprocess.run(command, shell=True, check=True)
     
@@ -46,17 +46,17 @@ def process_mosaic():
     folder = folder_var.get()
     result_folder = result_folder_var.get()
     select_roi_shrink_ratio = select_roi_shrink_ratio_var.get()
-    command = f"python mosaic.py --input_dir \"{folder}\" --result_folder \"{result_folder}\" --select_roi_shrink_ratio {select_roi_shrink_ratio}"
+    command = f"python codes/mosaic.py --input_dir \"{folder}\" --result_folder \"{result_folder}\" --select_roi_shrink_ratio {select_roi_shrink_ratio}"
     print(command)
     subprocess.run(command, shell=True, check=True)
 
 def process_text_transform():
-    command = f"python text_transform.py"
+    command = f"python codes/text_transform.py"
     print(command)
     subprocess.run(command, shell=True, check=True)
 
 def process_lora_xyplot():
-    command = f"python lora_xyplot_generator.py"
+    command = f"python codes/lora_xyplot_generator.py"
     print(command)
     subprocess.run(command, shell=True, check=True)
 
