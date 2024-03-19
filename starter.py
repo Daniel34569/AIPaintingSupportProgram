@@ -46,7 +46,8 @@ def process_mosaic():
     folder = folder_var.get()
     result_folder = result_folder_var.get()
     select_roi_shrink_ratio = select_roi_shrink_ratio_var.get()
-    command = f"python codes/mosaic.py --input_dir \"{folder}\" --result_folder \"{result_folder}\" --select_roi_shrink_ratio {select_roi_shrink_ratio}"
+    pixel_size = mosaic_pixel_size_var.get()
+    command = f"python codes/mosaic.py --input_dir \"{folder}\" --result_folder \"{result_folder}\" --select_roi_shrink_ratio {select_roi_shrink_ratio} --pixel_size {pixel_size}"
     print(command)
     subprocess.run(command, shell=True, check=True)
 
@@ -112,6 +113,11 @@ def initialize_mosaic_tab(tab):
 
     current_row += 1
 
+    tk.Label(tab, text="Mosaic pixel size\n(-1 : 0.01 * short side):").grid(row=current_row, column=0, sticky="w")
+    tk.Entry(tab, textvariable=mosaic_pixel_size_var).grid(row=current_row, column=1)
+
+    current_row += 1
+
     tk.Button(tab, text="Process", command=process_mosaic).grid(row=current_row, columnspan=2)
     
 def initialize_text_transform(tab):
@@ -152,6 +158,7 @@ position_y_var = tk.DoubleVar(value=0.8)
 watermark_image_var = tk.StringVar()
 result_folder_var = tk.StringVar()
 select_roi_shrink_ratio_var = tk.DoubleVar(value=-1)
+mosaic_pixel_size_var = tk.IntVar(value=-1)
 
 #is_enable_var = tk.BooleanVar(value=True)
 

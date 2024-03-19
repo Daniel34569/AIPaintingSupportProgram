@@ -72,6 +72,7 @@ original_size_img = None
 exit_count = 0
 current_window_width = 0
 current_window_height = 0
+pixel_size = -1
 
 def draw_lines(event, x, y, flags, param):
     global drawing, ix, iy, line_points, current_image, points
@@ -112,10 +113,10 @@ def process_image():
         #print(points, 'points')
         #img = mosaic_roi(img, [points[i:i+2] for i in range(0, len(points), 2)], pixel_size=-1)
         #img = mosaic_roi(src_img, tuple([list(t) for t in points]), pixel_size=-1)
-        img_processed = mosaic_roi(original_size_img, tuple([[val / select_roi_shrink_ratio for val in t]for t in points[:4]]), pixel_size=-1)
+        img_processed = mosaic_roi(original_size_img, tuple([[val / select_roi_shrink_ratio for val in t]for t in points[:4]]), pixel_size=pixel_size)
         loop_count = 1
         while len(points) - loop_count * 4 >= 4:
-            img_processed = mosaic_roi(img_processed, tuple([[val / select_roi_shrink_ratio for val in t]for t in points[4 * loop_count: 4 * loop_count + 4]]), pixel_size=-1)
+            img_processed = mosaic_roi(img_processed, tuple([[val / select_roi_shrink_ratio for val in t]for t in points[4 * loop_count: 4 * loop_count + 4]]), pixel_size=pixel_size)
             loop_count += 1
         cv2.imwrite(output_path + '\\' +file_list[current_file].split('\\')[-1], img_processed)
         #print(output_path + '\\' +file_list[current_file].split('\\')[-1])
@@ -191,12 +192,6 @@ def revert_line():
         current_image = original_img
 
 if __name__ == '__main__':
-    """
-    img_test = cv2.imread("./a.png")
-    p = ([306,159], [561,710], [339,579], [487,291])
-    res = mosaic_roi(img_test, p)
-    cv2.imwrite("./b.png", res)"""
-
     print("Welcome to use Mosaic tool!")
     print("Press a to change to previous image, d to change to next image")
     print("Press r to revert last line")
@@ -208,6 +203,7 @@ if __name__ == '__main__':
     parser.add_argument("--input_dir", default="./WatermarkTest", help="Target folder to process")
     parser.add_argument("--result_folder", default="./TmpWaterMarkResult", help="Folder to save result images (default: original folder)")
     parser.add_argument("--select_roi_shrink_ratio", default=-1, type=float, help="Shrink ratio for the ROI selection window.")
+    parser.add_argument("--pixel_size", default=-1, type=int, help="Mosaic size")
 
     args = parser.parse_args()
 
@@ -216,6 +212,8 @@ if __name__ == '__main__':
     os.makedirs(output_path, exist_ok=True)
     if args.select_roi_shrink_ratio > 0 :
         select_roi_shrink_ratio = args.select_roi_shrink_ratio
+    if args.pixel_size > 0 :
+        pixel_size = args.pixel_size
 
     change_image(0)
 
