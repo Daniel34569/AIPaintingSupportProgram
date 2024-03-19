@@ -119,7 +119,6 @@ class MainWindow(QWidget):
                 continue
             words = line.split(' ')
             word = ' '.join(words[:-1])
-            print(word)
             transformed.append(word)
         transformed = ', '.join(transformed)
         
