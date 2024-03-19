@@ -2,7 +2,7 @@
 Require python &gt; 3.10
 
 
-Some tool box for SDWebUI
+Tool box for SDWebUI
 
 **1. Resize**
 
