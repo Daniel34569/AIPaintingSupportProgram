@@ -1,3 +1,5 @@
 opencv-contrib-python
 Pillow
 windows-curses
+PyQt5
+pyqt5-tools
