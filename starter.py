@@ -56,7 +56,7 @@ def process_text_transform():
     subprocess.run(command, shell=True, check=True)
 
 def process_lora_xyplot():
-    command = f"python lora_xyplot_generator.py.py"
+    command = f"python lora_xyplot_generator.py"
     print(command)
     subprocess.run(command, shell=True, check=True)
 
